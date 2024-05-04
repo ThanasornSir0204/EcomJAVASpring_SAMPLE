@@ -13,7 +13,11 @@ import java.util.List;
 public class ProductController {
 
     @Autowired
-    private ProductService productService;
+    private final ProductService productService;
+
+    public ProductController(ProductService productService) {
+        this.productService = productService;
+    }
 
     @GetMapping
     public List<Product> getAllProducts() {
@@ -28,6 +32,16 @@ public class ProductController {
     @PostMapping
     public Product saveProduct(@RequestBody Product product) {
         return productService.saveProduct(product);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteProductById(@PathVariable String id) {
+        productService.deleteProductById(id);
+    }
+
+    @PutMapping("/{id}")
+    public Product updateProduct(@PathVariable String id, @RequestBody Product product) {
+        return productService.updateProduct(id, product);
     }
 
 }

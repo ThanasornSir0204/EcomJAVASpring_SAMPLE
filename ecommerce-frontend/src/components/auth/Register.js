@@ -1,5 +1,7 @@
+// components/auth/Register.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './AuthForm.css'; // Import CSS for authentication forms
 
 const Register = () => {
     const navigate = useNavigate();
@@ -45,9 +47,9 @@ const Register = () => {
     };
 
     return (
-        <div className="auth-container">
+        <div className="auth-form-container">
             <h2>Register</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="auth-form">
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
@@ -81,7 +83,7 @@ const Register = () => {
                 <button type="submit">Register</button>
             </form>
 
-            <p>
+            <p className="auth-form-link">
                 Already have an account? <Link to="/">Login here</Link>.
             </p>
         </div>

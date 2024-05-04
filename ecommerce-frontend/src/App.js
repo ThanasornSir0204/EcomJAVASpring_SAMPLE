@@ -6,7 +6,6 @@ import Footer from './components/common/Footer';
 import Login from './components/auth/Login';
 import CustomerDashboard from './components/customer/CustomerDashboard';
 import AdminDashboard from './components/admin/AdminDashboard';
-import EditProduct from './components/admin/EditProduct';
 
 import Register from './components/auth/Register';
 import AddProduct from "./components/admin/AddProduct"; // Import the Register component
@@ -21,7 +20,6 @@ const App = () => {
                     <Route path="/register" element={<Register />} /> {/* Add this line for registration route */}
                     <Route path="/customer" element={<CustomerDashboard />} />
                     <Route path="/admin" element={<AdminDashboard />} />
-                    <Route path="/admin/edit-product" element={<EditProduct />} />
                     <Route path="/admin/add-product" element={<AddProduct />}/>
                 </Routes>
                 <Footer />

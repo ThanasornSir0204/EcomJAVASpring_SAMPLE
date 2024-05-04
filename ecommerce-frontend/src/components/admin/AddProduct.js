@@ -18,7 +18,7 @@ const AddProduct = () => {
         e.preventDefault();
 
         try {
-            const response = await axios.post('http://localhost:8081/api/products', productData); // Replace with your actual API endpoint
+            const response = await axios.post('http://localhost:8081/api/products', productData);
             console.log(response.data); // Log the response (you can handle it as needed)
 
             // Clear the form after successful submission
@@ -27,8 +27,11 @@ const AddProduct = () => {
                 price: '',
                 imageUrl: '',
             });
+
+            alert('ADD PRODUCT SUCCESSFUL');
         } catch (error) {
             console.error('Error adding product:', error);
+            alert('Error adding product. Please try again.');
         }
     };
 

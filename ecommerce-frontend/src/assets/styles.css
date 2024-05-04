@@ -10,44 +10,69 @@ p {
 
 /* Set a space background */
 body {
-    background-image: url('../assets/images/space-background.jpg');
+    background-color: gray;
     background-size: cover;
     background-attachment: fixed;
     font-family: 'Arial', sans-serif;
     color: #fff;
 }
 
+/* Navbar container styles */
 .navbar {
-    background-color: #090909;
-    color: #fff;
-    padding: 1rem;
+    background-color: #090909; /* Dark background color */
+    color: #fff; /* Text color */
+    padding: 1rem; /* Padding around navbar */
 }
 
+/* Navbar container with flex layout */
 .navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; /* Space between logo and links */
+    align-items: center; /* Align items vertically centered */
 }
 
+/* Navbar logo/link styles */
 .navbar-logo {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1.5rem;
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.5rem; /* Larger font size */
+    font-weight: bold; /* Bold font */
 }
 
-.navbar-buttons {
-    display: flex;
-    align-items: center;
+/* Navbar links container */
+.navbar-links {
+    display: flex; /* Use flexbox layout */
+    align-items: center; /* Align items vertically centered */
 }
 
+/* Navbar link styles */
+.navbar-link {
+    color: #fff; /* White text color */
+    text-decoration: none; /* Remove underline */
+    margin-right: 1rem; /* Right margin between links */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Navbar link hover styles */
+.navbar-link:hover {
+    color: #ff4500; /* Change color on hover */
+}
+
+/* Navbar button styles */
 .navbar-button {
-    margin-left: 1rem;
-    padding: 0.5rem 1rem;
-    background-color: #ff4500;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+    padding: 0.5rem 1rem; /* Padding inside button */
+    background-color: #ff4500; /* Orange background color */
+    color: #fff; /* White text color */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    transition: background-color 0.3s ease; /* Smooth background color transition */
 }
+
+/* Navbar button hover styles */
+.navbar-button:hover {
+    background-color: #e63900; /* Darker orange on hover */
+}
+
 
 /* App container */
 .app-container {
@@ -61,19 +86,8 @@ body {
     background-color: #111;
     padding: 10px 20px;
     text-align: center;
-    position: fixed;
     bottom: 0;
     width: 100%;
-}
-
-/* Auth container */
-.auth-container {
-    max-width: 400px;
-    margin: auto;
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    margin-top: 50px;
 }
 
 /* Dashboard container */
@@ -84,40 +98,47 @@ body {
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
     margin-top: 50px;
+
 }
 /* ... Existing styles ... */
 
 /* Auth container */
+/* Login and Register Form Styles */
+
 .auth-container {
-    max-width: 400px;
+    max-width: 500px; /* กำหนดความกว้างสูงสุดของฟอร์ม */
     margin: auto;
-    padding: 20px;
+    padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
     border-radius: 8px;
-    margin-top: 50px;
+    margin-top: 100px; /* ระยะห่างด้านบน */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* เพิ่มเงาให้กับฟอร์ม */
 }
 
-/* Form styles */
 form {
     display: flex;
     flex-direction: column;
 }
 
 label {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
 }
 
 input {
-    padding: 8px;
-    margin-bottom: 16px;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
 }
 
 button {
     background-color: #4caf50;
     color: white;
-    padding: 10px;
+    padding: 14px;
     border: none;
     border-radius: 4px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -125,15 +146,13 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Responsive styles */
+
 @media (max-width: 600px) {
     .auth-container {
         width: 90%;
     }
 }
-/* ... Existing styles ... */
 
-/* Auth container */
 .auth-container {
     max-width: 400px;
     margin: auto;
@@ -141,9 +160,9 @@ button:hover {
     background-color: rgba(40, 36, 36, 0.8);
     border-radius: 8px;
     margin-top: 50px;
+    margin-bottom: auto;
 }
 
-/* Form styles */
 form {
     display: flex;
     flex-direction: column;
@@ -171,15 +190,12 @@ button:hover {
     background-color: #45a049;
 }
 
-/* Responsive styles */
 @media (max-width: 600px) {
     .auth-container {
         width: 90%;
     }
 }
-/* ... Existing styles ... */
 
-/* Dashboard container */
 .dashboard-container {
     width: 100%;
     margin: auto;
@@ -187,21 +203,93 @@ button:hover {
     background-color: rgba(30, 28, 28, 0.8);
     border-radius: 8px;
     margin-top: 50px;
+    margin-bottom: 50px;
 }
-/* Add these styles to your CSS file */
+
 .product-list {
     display: flex;
     flex-wrap: wrap;
 }
 
 .product-item {
-    width: calc(33.33% - 20px); /* 33.33% width for each product with 20px margin between them */
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ddd;
-    box-sizing: border-box;
+    width: 30%; 
+    margin: 10px; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    box-sizing: border-box; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: flex-start; 
 }
 
-/* Adjust styles as needed */
+/* ปุ่ม Add to Cart */
+.product-item button {
+    align-self: flex-end; 
+    margin-top: auto;
+}
 
-/* ... Existing styles ... */
+/* ขนาดรูปสินค้าเท่ากัน */
+.product-item img {
+    width: 100%; 
+    height: auto; 
+}
+
+/* ปุ่มตัวเลขใน pagination */
+.pagination button {
+    background-color: #007bff; /* สีพื้นหลังของปุ่ม */
+    color: #fff; /* สีตัวอักษรของปุ่ม */
+    padding: 8px 16px; /* การกำหนดช่องว่างของปุ่ม */
+    border: none; /* ลบเส้นขอบ */
+    border-radius: 4px; /* กำหนดเส้นขอบมนสุดของปุ่ม */
+    cursor: pointer; /* การเปลี่ยนเมาส์เป็น pointer เมื่อชี้ที่ปุ่ม */
+    margin-right: 4px; /* การกำหนดระยะห่างของปุ่มทางด้านขวา */
+}
+
+/* เพิ่มสีพื้นหลังของปุ่มเมื่อเมาส์ชี้ */
+.pagination button:hover {
+    background-color: #0056b3; /* สีพื้นหลังของปุ่มเมื่อเมาส์ชี้ */
+}
+
+button:hover {
+    transform: scale(1.1); /* ขยายขนาด 110% เมื่อมีการชี้เมาส์ */
+    transition: transform 0.3s ease; /* เพิ่ม transition เพื่อทำให้เกิดการเปลี่ยนขนาดอย่างเรียบขึ้น */
+}
+
+/* styles.css */
+
+/* Style for product item container */
+.product-item {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+    position: relative; /* Position relative for button placement */
+}
+
+/* Style for buttons */
+.edit-button {
+    background-color: #007bff; /* Blue color for Edit button */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Padding around button text */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    position: absolute; /* Position absolute for button placement */
+    bottom: 10px; /* 10px from bottom */
+    left: 10px; /* 10px from left */
+}
+
+.delete-button {
+    background-color: #dc3545; /* Red color for Delete button */
+    color: #fff; /* White text color */
+    padding: 8px 16px; /* Padding around button text */
+    border: none; /* Remove border */
+    cursor: pointer; /* Show pointer cursor on hover */
+    position: absolute; /* Position absolute for button placement */
+    bottom: 10px; /* 10px from bottom */
+    right: 10px; /* 10px from right */
+}
+
+/* Centered container for buttons */
+.button-container {
+    padding: 20px;
+    text-align: center; /* Center align child elements */
+}

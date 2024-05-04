@@ -6,12 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    private ProductRepository productRepository;
+    private final ProductRepository productRepository;
+
+    public ProductServiceImpl(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
 
     @Override
     public List<Product> getAllProducts() {
@@ -26,5 +31,22 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public Product saveProduct(Product product) {
         return productRepository.save(product);
+    }
+
+    @Override
+    public void deleteProductById(String id) {
+        productRepository.deleteById(id);
+    } 
+    @Override
+    public Product updateProduct(String id, Product product) {
+        Optional<Product> existingProductOptional = productRepository.findById(id);
+        if (existingProductOptional.isPresent()) {
+            Product existingProduct = existingProductOptional.get();
+            existingProduct.setName(product.getName());
+            existingProduct.setPrice(product.getPrice());
+            existingProduct.setImageUrl(product.getImageUrl());
+            return productRepository.save(existingProduct);
+        }
+        return null; // Handle not found case
     }
 }

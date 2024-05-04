@@ -1,6 +1,7 @@
 // components/auth/Login.js
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './AuthForm.css'; // Import CSS for authentication forms
 
 const Login = () => {
     const navigate = useNavigate();
@@ -31,15 +32,7 @@ const Login = () => {
 
             if (result.status === 'success') {
                 alert(result.message);
-
-                // Check if the user is an admin based on userType
-                if (result.userType === 'admin') {
-                    // Redirect to the Admin page if the user is an admin
-                    navigate('/admin');
-                } else {
-                    // Redirect to the Customer page for regular users
-                    navigate('/customer');
-                }
+                navigate(result.userType === 'admin' ? '/admin' : '/customer');
             } else {
                 alert(result.message);
             }
@@ -50,9 +43,9 @@ const Login = () => {
     };
 
     return (
-        <div className="auth-container">
+        <div className="auth-form-container">
             <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="auth-form">
                 <label htmlFor="email">Email:</label>
                 <input
                     type="email"
@@ -76,7 +69,7 @@ const Login = () => {
                 <button type="submit">Login</button>
             </form>
 
-            <p>
+            <p className="auth-form-link">
                 New user? <Link to="/register">Register here</Link>.
             </p>
         </div>

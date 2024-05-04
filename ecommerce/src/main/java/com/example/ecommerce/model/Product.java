@@ -11,13 +11,27 @@ public class Product {
     private double price;
     private String imageUrl;
 
-    public Product(String name, double price) {
+    // Constructors, getters, and setters
+
+    public Product() {
+        // Default constructor
+    }
+
+    public Product(String name, double price, String imageUrl) {
         this.name = name;
         this.price = price;
         this.imageUrl = imageUrl;
     }
 
     // Getters and setters
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;
@@ -34,6 +48,7 @@ public class Product {
     public void setPrice(double price) {
         this.price = price;
     }
+
     public String getImageUrl() {
         return imageUrl;
     }
